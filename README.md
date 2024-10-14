@@ -3,7 +3,7 @@
 > Algorithm collection using java
 
 1. [시간복잡도](https://github.com/k1mjunyoung/algorithm/blob/main/time_complexity.md)와 [디버깅](https://github.com/k1mjunyoung/algorithm/blob/main/debugging.md)
-2. [자료구조](https://github.com/k1mjunyoung/algorithm/tree/main/DataStructure)
+2. [자료구조](https://github.com/k1mjunyoung/algorithm/tree/main/datastructure)
 3. 정렬
 4. 탐색
 5. 탐욕 알고리즘
