@@ -12,7 +12,7 @@ import java.util.Scanner;
  * 반면에 10을 나타내는 방법은 10, 1+2+3+4의 2가지가 있다.
  * N을 입력받아 가지수를 출력하는 프로그램을 작성하시오.
  */
-public class Boj2018 {
+class BOJ2018 {
     public static void main(String[] args) {
         int cnt = 0;
         int sum = 0;

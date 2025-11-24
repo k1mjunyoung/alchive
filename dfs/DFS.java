@@ -2,7 +2,7 @@ package dfs;
 
 import java.util.Stack;
 
-public class DFS {
+class DFS {
     int N = 10;
 
     // (1) 방문 검사 배열

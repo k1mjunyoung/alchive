@@ -1,4 +1,4 @@
-package array;
+package bfs;
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // 기본 제공코드는 임의 수정해도 관계 없습니다. 단, 입출력 포맷 주의
@@ -28,6 +28,7 @@ package array;
 //System.out.println(AB);		       				     // long 변수 1개 출력하는 예제
 /////////////////////////////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,9 +36,9 @@ import java.util.Scanner;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class SWEA1206
+class SWEA1240
 {
-    public static void main(String[] args) throws Exception
+    public static void main(String args[]) throws Exception
     {
 		/*
 		   아래의 메소드 호출은 앞으로 표준 입력(키보드) 대신 input.txt 파일로부터 읽어오겠다는 의미의 코드입니다.
@@ -46,84 +47,56 @@ class SWEA1206
 		   따라서 테스트를 수행할 때에는 아래 주석을 지우고 이 메소드를 사용하셔도 좋습니다.
 		   단, 채점을 위해 코드를 제출하실 때에는 반드시 이 메소드를 지우거나 주석 처리 하셔야 합니다.
 		 */
-        // System.setIn(new FileInputStream("input.txt"));
+        //System.setIn(new FileInputStream("res/input.txt"));
 
 		/*
 		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
 		 */
         Scanner sc = new Scanner(System.in);
-        int T = 10;
+        int T;
+        T=sc.nextInt();
 		/*
 		   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 		*/
 
         List<Integer> results = new ArrayList<>();
 
-        for(int test_case = 1; test_case <= T; test_case++)
-        {
-            /////////////////////////////////////////////////////////////////////////////////////////////
-			/*
-				 이 부분에 여러분의 알고리즘 구현이 들어갑니다.
-			 */
-            /////////////////////////////////////////////////////////////////////////////////////////////
+        for(int test_case = 1; test_case <= T; test_case++) {
+            int mapSize = sc.nextInt();
 
+            int[][] map = new int[mapSize][mapSize];
+
+            // 지도에 깊이 저장
+            for (int i = 0; i < map.length; i++) {
+                String inputLine = sc.nextLine();
+                int depth = Integer.parseInt(inputLine.substring(i));
+                for (int j = 0; j < map[i].length; i++) {
+                    map[i][j] = depth;
+                }
+            }
+
+            int x = 0;
+            int y = 0;
+            int left, right, top, bottom;
+            List<Integer> aroundDepth = new ArrayList<>();
+            int optimum = 0;
             int result = 0;
 
-            // 빌딩 수
-            // System.out.println("빌딩 수 입력: ");
-            int buildingCount = sc.nextInt();
+            // TODO: BFS 적용
+            for (int i = 0; i < 4; i++) {
+                top = map[y-1][x];
+                bottom = map[y+1][x];
+                left = map[y][x-1];
+                right = map[y][x+1];
 
-            // 건물 별 층수
-            int[] floors = new int[buildingCount];
+                aroundDepth.add(top);
+                aroundDepth.add(bottom);
+                aroundDepth.add(left);
+                aroundDepth.add(right);
 
-            // 0번째 건물부터 층수 입력
-            // System.out.println("층수 입력: ");
-            for (int i = 0; i < buildingCount; i++) {
-                floors[i] = sc.nextInt();
+                optimum = Collections.min(aroundDepth);
             }
 
-            /*for (int i = 0; i < floors.length; i++) {
-                System.out.println(floors[i]);
-            }*/
-
-            // 층수를 저장할 2차원 배열 생성
-            int[][] buildings = new int[buildingCount][255];
-
-            for (int i = 0; i < buildingCount; i++) {
-                for (int j = 0; j < floors[i]; j++) {
-                    buildings[i][j] = 1;
-                }
-            }
-
-            /*for (int i = 0; i < buildings.length; i++) {
-                for (int j = 0; j < 255; j++) {
-                    System.out.printf("%d ", buildings[i][j]);
-                }
-                System.out.println();
-            }*/
-
-            int row = buildings.length;
-
-            for (int i = 2; i <= row-2; i++) {
-                for (int j = 0; j < floors[i]; j++) {
-                    if (buildings[i][j] == 1) { // 층이 있으면
-                        int tmp = 0;
-                        for (int k = i - 2; k <= i + 2; k++) {
-                            if (buildings[k][j] != 1) {
-                                tmp++;
-                            }
-                        }
-                        if (tmp == 4) {
-                            result++;
-                        }
-                    }
-                }
-            }
-
-            results.add(result);
-        }
-        for (int i = 1; i <= results.size(); i++) {
-            System.out.println("#" + i + " " + results.get(i-1));
         }
     }
 }

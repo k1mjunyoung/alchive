@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Boj12891S {
+class BOJ12891S {
     static int[] myArr;
     static int[] checkArr;
     static int checkSecret;
