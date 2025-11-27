@@ -1,44 +1,66 @@
-# 자바 코딩테스트 알고리즘 모음집
+# Alchive: Algorithm Archive
 
-> Algorithm collection using java
+이 저장소는 다양한 온라인 저지(Online Judge) 플랫폼에서 해결한 알고리즘 문제의 소스 코드를 저장하고 관리하기 위한 공간입니다.
 
-1. [시간복잡도](https://github.com/k1mjunyoung/algorithm/blob/main/time_complexity.md)와 [디버깅](https://github.com/k1mjunyoung/algorithm/blob/main/debugging.md)
-2. [자료구조](https://github.com/k1mjunyoung/algorithm/tree/main/datastructure)
-3. 정렬
-4. 탐색
-5. 탐욕 알고리즘
-6. 정수론
-7. 그래프
-8. 트리
-9. 조합
-10. 동적 계획법
+## 🚀 Goal
 
-# programmers
+- **체계적인 관리:** 문제들을 플랫폼, 난이도, 알고리즘 유형별로 분류하여 필요할 때 쉽게 찾아볼 수 있도록 합니다.
+- **학습 기록:** 문제 해결 과정을 기록하고 복습하며 꾸준한 학습 습관을 형성합니다.
+- **성장 추적:** 과거에 해결한 코드를 보며 실력 향상을 시각적으로 확인합니다.
 
-## Reference
+## 💡 Usage
 
-프로그래머스 코딩테스트 문제풀이전략: 자바편
+1.  원하는 알고리즘 유형의 디렉토리로 이동합니다.
+2.  소스 코드 파일을 통해 문제 해결 방법을 확인합니다.
+3.  파일 이름의 문제 번호를 참고하여 해당 온라인 저지 사이트에서 문제 설명을 찾아볼 수 있습니다.
 
-## Javadoc
+## 📂 Structure
 
-    ```java
-    /**
-     * 문제 이름(난이도) : 두 수의 합(LV0)
-     * 시간 : 0.02ms
-     * 메모리: 77MB
-     * 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120802
-     * */
-    public class Main {
-        
-        public static int solution(int a, int b){
-            return a + b;
-        }
-        
-        public static void main(String[] args) {
-            System.out.println(solution(1, 2) == 3);
-        }
+각 문제의 소스 코드는 주로 사용된 핵심 알고리즘 유형에 따라 분류되어 있습니다.
+
+```
+alchive/
+├── bfs/           # 너비 우선 탐색
+├── bruteforce/    # 브루트포스
+├── conquer/       # 분할 정복
+├── datastructure/ # 자료 구조
+├── dfs/           # 깊이 우선 탐색
+├── dp/            # 동적 프로그래밍
+├── greedy/        # 그리디 알고리즘
+├── implementation/  # 구현
+├── sort/          # 정렬
+├── string/        # 문자열
+└── ...
+```
+
+각 디렉토리 내의 파일 이름은 보통 `플랫폼이름` + `문제번호` 형식(예: `BOJ1012.java`)으로 되어 있습니다.
+
+* [BOJ (Baekjoon Online Judge)](https://www.acmicpc.net/)
+* [SWEA (Samsung SW Expert Academy)](https://swexpertacademy.com)
+* [PGM (Programmers)](https://programmers.co.kr/)
+* [Euler (Project Euler)](https://projecteuler.net)
+* ...
+
+## 📖 Javadoc
+
+```java
+/**
+ * [난이도]문제 이름 : [LV0]두 수의 합
+ * 시간 : 0.02ms
+ * 메모리: 77MB
+ * 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/120802
+ * */
+public class Main {
+    
+    public static int solution(int a, int b){
+        return a + b;
     }
-    ```
+    
+    public static void main(String[] args) {
+        System.out.println(solution(1, 2) == 3);
+    }
+}
+```
 
-- 가장 마지막 테스트 케이스의 내용을 입력
-- 정확성, 효율성 2개가 존재할 경우 `효율성`에 대한 내용으로 기입
+## 🔗 Reference
+프로그래머스 코딩테스트 문제풀이전략: 자바편
