@@ -21,17 +21,21 @@ class PGM42576 {
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        String answer = "";
-        
-        List<String> partiList = new ArrayList<>(Arrays.asList(participant));
-        List<String> complList = new ArrayList<>(Arrays.asList(completion));
-        
-        for(String compl : complList) {
-            if(partiList.contains(compl)) {
-                partiList.remove(compl);
+        Map<String, Integer> partiMap = new HashMap<>();
+
+        for (String parti : participant) {
+            partiMap.put(parti, partiMap.getOrDefault(parti, 0) + 1);
+        }
+        for (String compl : completion) {
+            partiMap.put(compl, partiMap.get(compl) - 1);
+        }
+
+        for (Map.Entry<String, Integer> entry : partiMap.entrySet()) {
+            if (entry.getValue() > 0) {
+                return entry.getKey();
             }
         }
         
-        return partiList.get(0);
+        return "";
     }
 }
