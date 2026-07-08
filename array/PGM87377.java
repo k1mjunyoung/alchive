@@ -3,12 +3,12 @@ package array;
 import java.util.Arrays;
 
 /**
- * 문제 이름:
- * 난이도: Level
+ * 문제 이름: 교점에 별 만들기
+ * 난이도: Level 2
  * 정확성:
  * 효율성:
  * 합계:  / 100.0
- * 링크:
+ * 링크: https://school.programmers.co.kr/learn/courses/30/lessons/87377
  */
 class PGM87377 {
     public static void main(String[] args) {
